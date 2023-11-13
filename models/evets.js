@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      evets.belongsTo(models.accounts)
+      evets.belongsTo(models.categories)
+      evets.belongsTo(models.cities)
     }
   }
   evets.init({

@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      ticket_types.hasMany(models.promos)
+      ticket_types.hasMany(models.inventories)
     }
   }
   ticket_types.init({

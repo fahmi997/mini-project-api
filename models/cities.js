@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      cities.hasMany(models.events)
+      cities.belongsTo(models.provinces)
     }
   }
   cities.init({
