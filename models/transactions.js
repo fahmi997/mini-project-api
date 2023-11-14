@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   transactions.init({
     userId: DataTypes.INTEGER,
     totalPrice: DataTypes.INTEGER,
-    status: DataTypes.ENUM,
+    status: DataTypes.ENUM('ongoing', 'done', 'expired'),
     deletedAt: DataTypes.DATE
   }, {
     sequelize,

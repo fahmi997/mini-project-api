@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     refCode: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    role: DataTypes.ENUM,
+    role: DataTypes.ENUM('user', 'eo'),
     avatar: DataTypes.STRING,
     phone: DataTypes.STRING,
     address: DataTypes.STRING,

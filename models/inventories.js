@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       inventories.belongsTo(models.events)
-      inventories.belongsTo(models.ticketTypes)
+      inventories.belongsTo(models.ticket_types)
       inventories.hasMany(models.promos)
     }
   }
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     isPromo: DataTypes.BOOLEAN,
     startSale: DataTypes.DATE,
     endSale: DataTypes.DATE,
-    saleStatus: DataTypes.ENUM,
+    saleStatus: DataTypes.ENUM('upcoming', 'sold', 'ongoing', 'ended'),
     stock: DataTypes.INTEGER,
     price: DataTypes.INTEGER,
     deletedAt: DataTypes.DATE

@@ -29,9 +29,9 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     tnc: DataTypes.TEXT,
     venue: DataTypes.STRING,
-    eventStatus: DataTypes.ENUM,
-    method: DataTypes.ENUM,
-    type: DataTypes.ENUM,
+    eventStatus: DataTypes.ENUM('upcoming', 'ongoing', 'canceled', 'ended'),
+    method: DataTypes.ENUM('offline', 'online'),
+    type: DataTypes.ENUM('paid', 'free'),
     deletedAt: DataTypes.DATE
   }, {
     sequelize,
