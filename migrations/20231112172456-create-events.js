@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('evets', {
+    await queryInterface.createTable('events', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,15 +11,27 @@ module.exports = {
       },
       userId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'accounts',
+          key: 'id'
+        }
       },
       categoryId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'categories',
+          key: 'id'
+        }
       },
       cityId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cities',
+          key: 'id'
+        }
       },
       name: {
         allowNull: false,
@@ -50,7 +62,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      evetStatus: {
+      eventStatus: {
         allowNull: false,
         type: Sequelize.ENUM('upcoming', 'ongoing', 'canceled', 'ended'),
         defaultValue: 'upcoming'
@@ -79,6 +91,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('evets');
+    await queryInterface.dropTable('events');
   }
 };

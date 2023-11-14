@@ -11,15 +11,31 @@ module.exports = {
       },
       invId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'inventories',
+          key: 'id'
+        }
       },
       ticketTypeId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'ticket_types'
+          },
+          key: 'id'
+        }
       },
       eventId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'events'
+          },
+          key: 'id'
+        }
       },
       name: {
         allowNull: false,

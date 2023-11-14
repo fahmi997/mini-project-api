@@ -11,7 +11,11 @@ module.exports = {
       },
       provId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'provincies',
+          key: 'id'
+        }
       },
       name: {
         allowNull: false,

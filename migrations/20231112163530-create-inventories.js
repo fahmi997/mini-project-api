@@ -11,11 +11,19 @@ module.exports = {
       },
       ticketTypeId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'ticket_types',
+          key: 'id'
+        }
       },
       eventId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'events',
+          key: 'id'
+        }
       },
       isPromo: {
         allowNull: false,

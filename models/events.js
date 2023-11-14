@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class evets extends Model {
+  class events extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,12 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      evets.belongsTo(models.accounts)
-      evets.belongsTo(models.categories)
-      evets.belongsTo(models.cities)
+      events.belongsTo(models.accounts)
+      events.belongsTo(models.categories)
+      events.belongsTo(models.cities)
+      events.belongsTo(models.promos)
     }
   }
-  evets.init({
+  events.init({
     userId: DataTypes.INTEGER,
     categoryId: DataTypes.INTEGER,
     cityId: DataTypes.INTEGER,
@@ -28,14 +29,14 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     tnc: DataTypes.TEXT,
     venue: DataTypes.STRING,
-    evetStatus: DataTypes.ENUM,
+    eventStatus: DataTypes.ENUM,
     method: DataTypes.ENUM,
     type: DataTypes.ENUM,
     deletedAt: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'evets',
+    modelName: 'events',
     paranoid: true,
   });
-  return evets;
+  return events;
 };

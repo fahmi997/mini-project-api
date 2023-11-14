@@ -11,11 +11,19 @@ module.exports = {
       },
       eventId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'events',
+          key: 'id'
+        }
       },
       transactionId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'transactions',
+          key: 'id'
+        }
       },
       qty: {
         allowNull: false,
