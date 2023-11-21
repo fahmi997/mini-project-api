@@ -26,7 +26,6 @@ module.exports = {
         }
       },
       cityId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'cities',
@@ -49,7 +48,6 @@ module.exports = {
         type: Sequelize.DATE
       },
       address: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
@@ -59,7 +57,9 @@ module.exports = {
         type: Sequelize.TEXT
       },
       venue: {
-        allowNull: false,
+        type: Sequelize.STRING
+      },
+      url: {
         type: Sequelize.STRING
       },
       eventStatus: {
