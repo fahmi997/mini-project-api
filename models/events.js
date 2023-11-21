@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     tnc: DataTypes.TEXT,
     venue: DataTypes.STRING,
+    url: DataTypes.STRING,
     eventStatus: DataTypes.ENUM('upcoming', 'ongoing', 'canceled', 'ended'),
     method: DataTypes.ENUM('offline', 'online'),
     type: DataTypes.ENUM('paid', 'free'),

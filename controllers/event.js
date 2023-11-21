@@ -1,13 +1,15 @@
 const { errorRespose } = require("../helper/utils");
-const { categories, provinces, cities, ticket_types } = require("../models");
+const { categories, provinces, cities, ticket_types, events } = require("../models");
 
 module.exports = {
     create: async (req, res, next) => {
         try {
-            const result = await service_name.create(req.body);
+            // const result = req.body;
+            const result = await events.create(req.body);
+            // console.log(result);
             res.status(200).json(result);
         } catch (error) {
-            next(error);
+            next(errorRespose(500, false, error.message, error.stack));
         }
     },
 
