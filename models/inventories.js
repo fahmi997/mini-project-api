@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       inventories.belongsTo(models.events)
-      inventories.belongsTo(models.ticket_types)
-      inventories.hasMany(models.promos)
+      // inventories.belongsTo(models.ticket_types)
+      // inventories.hasMany(models.promos)
     }
   }
   inventories.init({

@@ -1,5 +1,5 @@
 const { errorRespose } = require("../helper/utils");
-const { categories, provinces, cities } = require("../models");
+const { categories, provinces, cities, events } = require("../models");
 
 module.exports = {
     getAllEvents: async (req, res, next) => {
