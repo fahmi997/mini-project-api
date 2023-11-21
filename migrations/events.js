@@ -10,46 +10,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'accounts',
-          key: 'id'
-        }
+        type: Sequelize.INTEGER
       },
       categoryId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'categories',
-          key: 'id'
-        }
+        type: Sequelize.INTEGER
       },
       cityId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'cities',
-          key: 'id'
-        }
+        type: Sequelize.INTEGER
       },
       name: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       image: {
         type: Sequelize.STRING
       },
       startDate: {
-        allowNull: false,
         type: Sequelize.DATE
       },
       endDate: {
-        allowNull: false,
         type: Sequelize.DATE
       },
       address: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
@@ -59,23 +40,16 @@ module.exports = {
         type: Sequelize.TEXT
       },
       venue: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       eventStatus: {
-        allowNull: false,
-        type: Sequelize.ENUM('upcoming', 'ongoing', 'canceled', 'ended'),
-        defaultValue: 'upcoming'
+        type: Sequelize.ENUM('segera', 'berlangsung', 'berakhir', 'dibatalkan', 'ditunda')
       },
       method: {
-        allowNull: false,
-        type: Sequelize.ENUM('offline', 'online'),
-        defaultValue: 'offline'
+        type: Sequelize.ENUM('online', 'offline')
       },
       type: {
-        allowNull: false,
-        type: Sequelize.ENUM('paid', 'free'),
-        defaultValue: 'paid'
+        type: Sequelize.ENUM('berbayar', 'gratis')
       },
       deletedAt: {
         type: Sequelize.DATE

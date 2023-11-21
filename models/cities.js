@@ -16,13 +16,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   cities.init({
-    provId: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    deletedAt: DataTypes.DATE
+    provId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'cities',
-    paranoid: true,
   });
   return cities;
 };

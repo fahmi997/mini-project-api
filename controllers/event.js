@@ -2,6 +2,15 @@ const { errorRespose } = require("../helper/utils");
 const { categories, provinces, cities } = require("../models");
 
 module.exports = {
+    getAllEvents: async (req, res, next) => {
+        try {
+            const result = await events.findAll();
+            return res.status(200).send(result);
+        } catch (error) {
+            console.log(error);
+            next(error);
+        }
+    },
     create: async (req, res, next) => {
         try {
             const result = await service_name.create(req.body);

@@ -29,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'inventories',
-    paranoid:true
   });
   return inventories;
 };

@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Define routes here
-app.use('/event', eventRouter)
+app.use('/events', eventRouter)
 
 // ERROR HANDLING EXPRESS
 app.use((err, req, res, next) => {

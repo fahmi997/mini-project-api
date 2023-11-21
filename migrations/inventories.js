@@ -10,38 +10,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ticketTypeId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'ticket_types',
-          key: 'id'
-        }
+        type: Sequelize.INTEGER
       },
       eventId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'events',
-          key: 'id'
-        }
+        type: Sequelize.INTEGER
       },
       isPromo: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+        type: Sequelize.BOOLEAN
       },
       startSale: {
-        allowNull: false,
         type: Sequelize.DATE
       },
       endSale: {
-        allowNull: false,
         type: Sequelize.DATE
       },
       saleStatus: {
-        allowNull: false,
-        type: Sequelize.ENUM('upcoming', 'sold', 'ongoing', 'ended'),
-        defaultValue: 'upcoming'
+        type: Sequelize.ENUM('upcoming', 'sold', 'ongoing', 'ended')
       },
       stock: {
         type: Sequelize.INTEGER

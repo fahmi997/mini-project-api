@@ -15,12 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   provinces.init({
-    name: DataTypes.STRING,
-    deletedAt: DataTypes.DATE
+    name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'provinces',
-    paranoid: true,
   });
   return provinces;
 };
