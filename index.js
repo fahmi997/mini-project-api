@@ -6,7 +6,7 @@ const cors = require('cors');
 const bearerToken = require('express-bearer-token');
 
 // const { router_name } = require('./routers');
-const { eventRouter } = require('./routers')
+const { eventRouter, ticketRouter } = require('./routers')
 
 const app = express();
 
@@ -21,7 +21,12 @@ app.get('/', (req, res) => {
 });
 
 // Define routes here
+<<<<<<< HEAD
 app.use('/events', eventRouter)
+=======
+app.use('/event', eventRouter);
+app.use('/ticket', ticketRouter);
+>>>>>>> 01b471cf6dbb7da0607d762799e6ccaac371a3b4
 
 // ERROR HANDLING EXPRESS
 app.use((err, req, res, next) => {
