@@ -1,14 +1,22 @@
 const { errorRespose } = require("../helper/utils");
 const { categories, provinces, cities, ticket_types, events } = require("../models");
+const fs = require("fs");
 
 module.exports = {
     create: async (req, res, next) => {
         try {
-            // const result = req.body;
+            if (req.file) {
+                const result = await events.create({ ...req.body, image: req.file.path });
+                return res.status(200).json(result);
+            }
+            // const result = { ...req.body };
             const result = await events.create(req.body);
-            // console.log(result);
-            res.status(200).json(result);
+
+            console.log(result);
+            return res.status(200).json(result);
         } catch (error) {
+            console.log(error);
+            fs.unlinkSync(`${req.file.path}`);
             next(errorRespose(500, false, error.message, error.stack));
         }
     },
@@ -53,13 +61,13 @@ module.exports = {
                         {
                             model: provinces,
                             as: 'province',
-                            attributes: ['name'], 
+                            attributes: ['name'],
                             required: true
                         }
                     ]
                 }
             );
-            
+
             if (!result) {
                 return next(errorRespose(404, false, "Not Found", "Cities not found"));
             }
