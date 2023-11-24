@@ -11,10 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // events.belongsTo(models.accounts)
+      events.belongsTo(models.accounts)
       events.belongsTo(models.categories)
       events.belongsTo(models.cities)
-      // events.belongsTo(models.promos)
+      events.belongsTo(models.promos)
     }
   }
   events.init({
@@ -37,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'events',
+    paranoid: true,
   });
   return events;
 };

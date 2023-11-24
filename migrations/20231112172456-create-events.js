@@ -10,10 +10,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'accounts',
+          key: 'id'
+        }
       },
       categoryId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'categories',
+          key: 'id'
+        }
       },
       cityId: {
         type: Sequelize.INTEGER,
@@ -23,15 +33,18 @@ module.exports = {
         }
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       image: {
         type: Sequelize.STRING
       },
       startDate: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       endDate: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       address: {
@@ -50,13 +63,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       eventStatus: {
-        type: Sequelize.ENUM('segera', 'berlangsung', 'berakhir', 'dibatalkan', 'ditunda')
+        allowNull: false,
+        type: Sequelize.ENUM('upcoming', 'ongoing', 'canceled', 'ended'),
+        defaultValue: 'upcoming'
       },
       method: {
-        type: Sequelize.ENUM('online', 'offline')
+        allowNull: false,
+        type: Sequelize.ENUM('offline', 'online'),
+        defaultValue: 'offline'
       },
       type: {
-        type: Sequelize.ENUM('berbayar', 'gratis')
+        allowNull: false,
+        type: Sequelize.ENUM('paid', 'free'),
+        defaultValue: 'paid'
       },
       deletedAt: {
         type: Sequelize.DATE

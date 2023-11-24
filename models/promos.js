@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class inventories extends Model {
+  class promos extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,25 +11,26 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      inventories.belongsTo(models.events)
-      inventories.belongsTo(models.ticket_types)
-      inventories.hasMany(models.promos)
+      promos.belongsTo(models.inventories)
+      promos.belongsTo(models.ticket_types)
+      promos.belongsTo(models.events)
     }
   }
-  inventories.init({
+  promos.init({
+    invId: DataTypes.INTEGER,
     ticketTypeId: DataTypes.INTEGER,
     eventId: DataTypes.INTEGER,
-    isPromo: DataTypes.BOOLEAN,
-    startSale: DataTypes.DATE,
-    endSale: DataTypes.DATE,
-    saleStatus: DataTypes.ENUM('upcoming', 'sold', 'ongoing', 'ended'),
+    name: DataTypes.STRING,
+    startDate: DataTypes.DATE,
+    endDate: DataTypes.DATE,
     stock: DataTypes.INTEGER,
-    price: DataTypes.INTEGER,
+    code: DataTypes.STRING,
+    discount: DataTypes.DECIMAL(10,2),
     deletedAt: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'inventories',
+    modelName: 'promos',
     paranoid:true
   });
-  return inventories;
+  return promos;
 };
