@@ -12,7 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert("provinces", [
+    await queryInterface.bulkInsert("provincies", [
       {
         name: "ACEH",
         createdAt: new Date(),
