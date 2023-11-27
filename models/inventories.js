@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       inventories.belongsTo(models.events)
       inventories.belongsTo(models.ticket_types)
-      inventories.hasMany(models.promos)
+      // inventories.hasMany(models.promos)
     }
   }
   inventories.init({

@@ -6,7 +6,7 @@ const cors = require('cors');
 const bearerToken = require('express-bearer-token');
 
 // const { router_name } = require('./routers');
-const { eventRouter, ticketRouter, cityRouter, accountsRouter } = require('./routers')
+const { eventRouter, ticketRouter, cityRouter, promoRouter, accountsRouter } = require('./routers')
 
 const app = express();
 
@@ -25,6 +25,7 @@ app.use('/accounts', accountsRouter)
 app.use('/event', eventRouter);
 app.use('/ticket', ticketRouter);
 app.use('/cities', cityRouter)
+app.use('/promo', promoRouter);
 
 // ERROR HANDLING EXPRESS
 app.use((err, req, res, next) => {
