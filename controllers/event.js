@@ -91,5 +91,53 @@ module.exports = {
         } catch (error) {
             next(errorRespose(500, false, error.message, error.stack));
         }
-    }
+    },
+
+    getAllData: async (req, res, next) => {
+        try {
+            const result = await events.findAll({
+                where: {
+                    userId: req.params.id
+                },
+                include: [
+                    {
+                        model: categories,
+                        as: 'category',
+                        attributes: ['name'],
+                        required: true
+                    },
+                    {
+                        model: cities,
+                        as: 'city',
+                        attributes: ['name'],
+                        include: [
+                            {
+                                model: provinces,
+                                as: 'province',
+                                attributes: ['name'],
+                            }
+                        ]
+                    }
+                ]
+
+            });
+            return res.status(200).json(result);
+        } catch (error) {
+            next(errorRespose(500, false, error.message, error.stack));
+        }
+    },
+
+    delete: async (req, res, next) => {
+        try {
+            // console.log("Delete req param:",req.params.id);
+            const result = await events.destroy({
+                where: {
+                    id: req.params.id
+                }
+            });
+            return res.status(200).json(result);
+        } catch (error) {
+            next(errorRespose(500, false, error.message, error.stack));
+        }
+    },
 };
