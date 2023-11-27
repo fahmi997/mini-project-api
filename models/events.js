@@ -11,10 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      events.belongsTo(models.accounts)
+      events.belongsTo(models.accounts, {
+        foreignKey: { name : "userId"}
+      })
       events.belongsTo(models.categories)
       events.belongsTo(models.cities)
-      events.belongsTo(models.promos)
+      events.hasMany(models.promos)
     }
   }
   events.init({
