@@ -6,7 +6,7 @@ const cors = require('cors');
 const bearerToken = require('express-bearer-token');
 
 // const { router_name } = require('./routers');
-const { eventRouter, ticketRouter, cityRouter } = require('./routers')
+const { eventRouter, ticketRouter, cityRouter, accountsRouter } = require('./routers')
 
 const app = express();
 
@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Define routes here
+app.use('/accounts', accountsRouter)
 app.use('/event', eventRouter);
 app.use('/ticket', ticketRouter);
 app.use('/cities', cityRouter)
