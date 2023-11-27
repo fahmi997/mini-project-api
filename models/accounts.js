@@ -18,7 +18,12 @@ module.exports = (sequelize, DataTypes) => {
   accounts.init({
     name: DataTypes.STRING,
     refCode: DataTypes.STRING,
-    email: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true
+      }
+    },
     password: DataTypes.STRING,
     role: DataTypes.ENUM('user', 'eo'),
     avatar: DataTypes.STRING,
