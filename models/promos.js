@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      promos.belongsTo(models.inventories)
+      // promos.belongsTo(models.inventories)
       promos.belongsTo(models.ticket_types)
       promos.belongsTo(models.events)
     }
   }
   promos.init({
-    invId: DataTypes.INTEGER,
+    // invId: DataTypes.INTEGER,
     ticketTypeId: DataTypes.INTEGER,
     eventId: DataTypes.INTEGER,
     name: DataTypes.STRING,
