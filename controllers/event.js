@@ -5,14 +5,16 @@ const fs = require("fs");
 module.exports = {
     create: async (req, res, next) => {
         try {
+            console.log("REQ", req);
             if (req.file) {
                 const result = await events.create({ ...req.body, image: req.file.path });
+                // console.log("result create event:", result);
                 return res.status(200).json(result);
             }
             // const result = { ...req.body };
             const result = await events.create(req.body);
 
-            console.log(result);
+            // console.log(result);
             return res.status(200).json(result);
         } catch (error) {
             console.log(error);
