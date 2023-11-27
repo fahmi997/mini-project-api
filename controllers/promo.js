@@ -10,7 +10,7 @@ module.exports = {
                         model: events,
                         required: true,
                         where: {
-                            userId: req.body.userId
+                            userId: req.params.id
                         }
                     },
                     {
@@ -21,6 +21,7 @@ module.exports = {
             })
             return res.status(200).json(result)
         } catch (error) {
+            console.log(error);
             next(errorRespose(500, false, error.message, error.stack));
         }
     },
@@ -31,6 +32,10 @@ module.exports = {
                     {
                         model: events,
                         required: true,
+                        where: {
+                            // userId: req.body.userId
+                            userId: req.params.id
+                        }
                     },
                     {
                         model: ticket_types,

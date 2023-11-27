@@ -160,6 +160,7 @@ module.exports = {
       return res.status(200).send({
         succes: true,
         result: {
+          id,
           name,
           email,
           address,
