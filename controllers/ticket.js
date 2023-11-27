@@ -12,4 +12,12 @@ module.exports = {
             next(errorRespose(500, false, error.message, error.stack));
         }
     },
+    getAll: async (req, res, next) => {
+        try {
+            const result = await inventories.findAll()
+            return res.status(200).send(result)
+        } catch (error) {
+            next(errorRespose(500, false, error.message, error))
+        }
+    }
 }
